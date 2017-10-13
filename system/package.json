@@ -1,0 +1,16 @@
+{
+  "name": "@perl/system",
+  "version": "1.0.0",
+  "description": "Run external commands and capture their status",
+  "main": "index.js",
+  "keywords": [],
+  "author": "Rebecca Turner <me@re-becca.org> (http://re-becca.org/)",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^3.5.1",
+    "cross-spawn": "^5.1.0"
+  },
+  "files": [
+    "index.js"
+  ]
+}

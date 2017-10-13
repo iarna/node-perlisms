@@ -1,0 +1,16 @@
+{
+  "name": "@perl/qw",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "prepare": "perl -pE \"s{'qw'}{'\\@perl/qw'}g;s{# qw}{# \\@perl/qw}g\" node_modules/qw/README.md > README.md"
+  },
+  "keywords": [],
+  "author": "Rebecca Turner <me@re-becca.org> (http://re-becca.org/)",
+  "license": "ISC",
+  "dependencies": {
+    "qw": "^1.0.1"
+  },
+  "devDependencies": {}
+}
