@@ -1,6 +1,6 @@
 {
   "name": "@perl/qr",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Better regexp literals!",
   "main": "index.js",
   "keywords": [],
@@ -8,7 +8,9 @@
   "license": "ISC",
   "dependencies": {},
   "devDependencies": {},
-  "files": [ "index.js" ],
+  "files": [
+    "index.js"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/iarna/node-perlisms.git"
