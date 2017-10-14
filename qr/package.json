@@ -8,5 +8,13 @@
   "license": "ISC",
   "dependencies": {},
   "devDependencies": {},
-  "files": [ "index.js" ]
+  "files": [ "index.js" ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iarna/node-perlisms.git"
+  },
+  "bugs": {
+    "url": "https://github.com/iarna/node-perlisms/issues"
+  },
+  "homepage": "https://npmjs.com/package/@perl/system"
 }
