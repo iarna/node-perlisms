@@ -1,5 +1,5 @@
 {
-  "name": "@perl/system",
+  "name": "@perl/qx",
   "version": "1.0.0",
   "description": "Run external commands and capture their status",
   "main": "index.js",
