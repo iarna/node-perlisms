@@ -12,7 +12,7 @@ const output = await qx`ls -l`
 qx`ls -l`.then(output => console.log(output))
 
 // also available in synchronous version
-const output = system.sync`ls -l`
+const output = qx.sync`ls -l`
 
 ```
 
