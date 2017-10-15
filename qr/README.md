@@ -37,7 +37,7 @@ still allowing you to easily compose multiple regexps together.
 ## Origins
 
 This is intended to provide the largely same functionality as the
-[Perl regexp literals](https://perldoc.perl.org/functions/qr.html).
+[Perl regexp literals](https://perldoc.perl.org/perlop.html#Regexp-Quote-Like-Operators).
 
 The primary difference from Perl is that embedded vars are escaped unless they're
 RegExp objects.
