@@ -19,9 +19,12 @@ qr`abc`.with('i').test('123ABCDEF') // true
 const foo = '[foo]'
 console.log(qr`${foo}bar`) // /\[foo]bar/
 
+qr`exam${'\s\s'}ple` // equivalent of Perl qr/exam\Q\s\s\Eple/
+
 // embeded regexps are not escaped
 const foo = /[foo]/
 console.log(qr`${foo}bar`) // /[foo]bar/
+
 ```
 
 ## DESCRIPTION

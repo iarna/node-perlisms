@@ -22,17 +22,15 @@ function qr () {
       if (val instanceof RegExp) {
         result += '(?:' + strifyRegexp(val) + ')'
       } else {
-        result += regexpEscape(String(val))
+        result += quotemeta(String(val))
       }
     } 
   }
   return new QRegExp(result)
 }
 
-function regexpEscape (str) {
-  str = str.replace(/\\/g, '\\\\')
-  str = str.replace(/([[({+*?$^])/g, '\\$1')
-  return str
+function quotemeta (str) {
+  return str.replace(/([^A-Za-z_0-9])/g, '\\$1')
 }
 
 function strifyRegexp (re) {
