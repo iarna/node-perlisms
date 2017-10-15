@@ -19,4 +19,4 @@ const output = qx.sync`ls -l`
 ## Origins
 
 This is intended to provide the same functionality as the
-[Perl qx](https://perldoc.perl.org/functions/qx.html) syntax.
+[Perl qx](https://perldoc.perl.org/perlop.html#Quote-Like-Operators) syntax.
