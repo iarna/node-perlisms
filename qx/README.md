@@ -3,7 +3,7 @@
 Run a command and capture it's return status.
 
 ```js
-const system = require('@perl/qx')
+const qx = require('@perl/qx')
 
 // capture the output from `ls -l`
 const output = await qx`ls -l`
