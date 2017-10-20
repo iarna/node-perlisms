@@ -30,7 +30,7 @@ to you to quote spaces and escape special characters.
 With `args`, `cmd` is called directly and `args` is passed in via OS
 facilities (so you don't need to provide quoting or escaping).
 
-## `system.sync(cmd[, args]) → status
+## `system.sync(cmd[, args]) → status`
 
 As with `system`, synchronous and just returns the status.
 
