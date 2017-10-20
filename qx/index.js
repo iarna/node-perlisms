@@ -18,13 +18,12 @@ function defer () {
   }
 }
 
-function qx (str) {
-  const cmd = String.raw(str)
+function qx () {
+  const cmd = String.raw.apply(this, arguments)
   let outDone = defer()
   let imDone = defer()
   let output = []
   let status
-console.log(outDone, imDone)
   const child = spawn(cmd, [], {shell: true, stdio: [0, 'pipe', 2]})
   child.on('error', err => setImmediate(() => imDone.reject(err)))
   child.stdout.on('data', chunk => output.push(chunk))
@@ -38,14 +37,14 @@ console.log(outDone, imDone)
     }
   })
   return Bluebird.join(outDone.promise, imDone.promise, () => {
-    return Buffer.concat(output).toString()
+    return Buffer.concat(output).toString().trim()
   })
 }
 
-qx.sync = function (str) {
-  const cmd = String.raw(str)
+qx.sync = function () {
+  const cmd = String.raw.apply(this, arguments)
   const opts = {shell: true, stdio: [0, 'pipe', 2]}
   const result = spawnSync(cmd, [], opts)
   if (result.error) throw result.error
-  return result.stdout.toString()
+  return result.stdout.toString().trim()
 }
