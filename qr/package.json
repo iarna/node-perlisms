@@ -18,5 +18,6 @@
   "bugs": {
     "url": "https://github.com/iarna/node-perlisms/issues"
   },
-  "homepage": "https://npmjs.com/package/@perl/system"
+  "homepage": "https://npmjs.com/package/@perl/system",
+  "keywords": [ "regexp", "regexp literals", "regex", "template strings" ]
 }

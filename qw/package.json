@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/iarna/node-perlisms/issues"
   },
-  "homepage": "https://npmjs.com/package/@perl/qw"
+  "homepage": "https://npmjs.com/package/@perl/qw",
+  "keywords": [
+    "quoted words", "word splitting", "array literals"
+  ]
 }
