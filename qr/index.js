@@ -58,7 +58,6 @@ flags.forEach(flag => {
 })
 
 Object.defineProperties(qr, props)
-console.log(props)
 flags.forEach(flag => {
   const theseProps = Object.assign({}, subprops)
   delete theseProps[flag]
