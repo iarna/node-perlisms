@@ -3,7 +3,11 @@ module.exports = qr
 
 class QRegExp extends RegExp {
   with (flags) {
-    return new QRegExp(this.source, this.flags + flags)
+    let newFlags = this.flags
+    flags.split('').forEach(flag => {
+      if (newFlags.indexOf(flag) === -1) newFlags += flag
+    })
+    return new QRegExp(this.source, newFlags)
   }
 }
 
