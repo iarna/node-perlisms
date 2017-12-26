@@ -33,6 +33,38 @@ function qr () {
   return new QRegExp(result)
 }
 
+const flags = ['i', 'g', 'm', 'u', 'y']
+const props = {}
+const subprops = {}
+let activeFlags = ''
+flags.forEach(flag => {
+  let fn
+  eval(`fn = function qr$` + flag + ` () {
+      const re = qr.apply(this, arguments)
+      return re.with(activeFlags)
+    }`)
+  props[flag] = {
+    get: function () {
+      activeFlags = flag
+      return fn
+    }
+  }
+  subprops[flag] = {
+    get: function () {
+      activeFlags += flag
+      return this
+    }
+  }
+})
+
+Object.defineProperties(qr, props)
+console.log(props)
+flags.forEach(flag => {
+  const theseProps = Object.assign({}, subprops)
+  delete theseProps[flag]
+  Object.defineProperties(qr[flag], theseProps)
+})
+
 function quotemeta (str) {
   return str.replace(/([^A-Za-z_0-9])/g, '\\$1')
 }

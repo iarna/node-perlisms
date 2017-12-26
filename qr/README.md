@@ -12,7 +12,10 @@ const matches = 'this is a test'.match(qr`is\s*`) // matches[1] === 'is '
 // regexp literals don't need backslash escaping
 qr`abc\s` // /abc\s/
 
-// add flags
+// add flags:
+qr.i`abc`.test('123ABCDEF') // true
+
+// or after the fact:
 qr`abc`.with('i').test('123ABCDEF') // true
 
 // embeded variables get escaped
