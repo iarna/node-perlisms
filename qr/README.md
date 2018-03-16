@@ -18,6 +18,14 @@ qr.i`abc`.test('123ABCDEF') // true
 // or after the fact:
 qr`abc`.with('i').test('123ABCDEF') // true
 
+// with more than one
+qr.i.g`abc` // /abc/gi
+qr`abc`.with('ig') // /abc/gi
+
+// in any order
+qr.g.i`abc` // /abc/gi
+qr`abc`.with('gi') // /abc/gi
+
 // embeded variables get escaped
 const foo = '[foo]'
 console.log(qr`${foo}bar`) // /\[foo]bar/
