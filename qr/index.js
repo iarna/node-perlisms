@@ -9,6 +9,12 @@ class QRegExp extends RegExp {
     })
     return new QRegExp(this.source, newFlags)
   }
+  concat (arg1) {
+    const args = arguments.length === 1 && Array.isArray(arg1) ? arg1 : Array.prototype.slice.call(arguments)
+    const all = [this].concat(args)
+    const src = all.map(v => strify(v)).join('')
+    return new QRegExp(src)
+  }
 }
 
 function qr () {
@@ -22,15 +28,14 @@ function qr () {
 
     if (values.length) {
       const val = values.shift()
-      if (val == null) val = ''
-      if (val instanceof RegExp) {
-        result += '(?:' + strifyRegexp(val) + ')'
-      } else {
-        result += quotemeta(String(val))
-      }
+      result += strify(val)
     } 
   }
   return new QRegExp(result)
+}
+
+qr.join = (joinWith, list) => {
+  return new QRegExp(list.map(v => strify(v)).join(joinWith))
 }
 
 const flags = ['i', 'g', 'm', 'u', 'y']
@@ -63,6 +68,17 @@ flags.forEach(flag => {
   delete theseProps[flag]
   Object.defineProperties(qr[flag], theseProps)
 })
+
+function strify (val) {
+  if (val == null) val = ''
+  if (val instanceof RegExp) {
+    return '(?:' + strifyRegexp(val) + ')'
+  } else if (Array.isArray(val)) {
+    return String(val)
+  } else {
+    return quotemeta(String(val))
+  }
+}
 
 function quotemeta (str) {
   return str.replace(/([^A-Za-z_0-9])/g, '\\$1')
