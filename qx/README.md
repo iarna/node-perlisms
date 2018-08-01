@@ -1,6 +1,6 @@
 # @perl/qx
 
-Run a command and capture it's return status.
+Run a command and capture its return status.
 
 ```js
 const qx = require('@perl/qx')
