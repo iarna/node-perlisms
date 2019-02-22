@@ -1,6 +1,6 @@
 {
   "name": "@perl/qx",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Run external commands and capture their status",
   "main": "index.js",
   "keywords": [],
