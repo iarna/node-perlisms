@@ -1,0 +1,16 @@
+{
+  "name": "@perl/sleep",
+  "version": "1.0.0",
+  "main": "sleep.js",
+  "keywords": [],
+  "author": "Rebecca Turner <me@re-becca.org> (http://re-becca.org/)",
+  "license": "ISC",
+  "description": "Async (promise) and sync(!) sleep for Node.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/iarna/perlisms.git",
+    "directory": "sleep"
+  },
+  "bugs": "https://github.com/iarna/perlisms/issues",
+  "homepage": "https://npmjs.com/package/@perl/sleep"
+}
