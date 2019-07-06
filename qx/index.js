@@ -18,12 +18,23 @@ function defer () {
 }
 
 function qx () {
-  const cmd = String.raw.apply(this, arguments)
+  let cmd
+  let args
+  let shell
+  if (arguments[0].raw) {
+    cmd = String.raw.apply(this, arguments)
+    args = []
+    shell = true
+  } else {
+    args = Array.prototype.slice.apply(arguments)
+    cmd = args.shift()
+    shell = false
+  }
   let outDone = defer()
   let imDone = defer()
   let output = []
   let status
-  const child = spawn(cmd, [], {shell: true, stdio: [0, 'pipe', 2]})
+  const child = spawn(cmd, args, {shell, stdio: [0, 'pipe', 2]})
   child.on('error', err => setImmediate(() => imDone.reject(err)))
   child.stdout.on('data', chunk => output.push(chunk))
   child.stdout.on('end', () => outDone.resolve())
@@ -41,9 +52,20 @@ function qx () {
 }
 
 qx.sync = function () {
-  const cmd = String.raw.apply(this, arguments)
-  const opts = {shell: true, stdio: [0, 'pipe', 2]}
-  const result = spawnSync(cmd, [], opts)
+  let cmd
+  let args
+  let shell
+  if (arguments[0].raw) {
+    cmd = String.raw.apply(this, arguments)
+    args = []
+    shell = true
+  } else {
+    args = Array.prototype.slice.apply(arguments)
+    cmd = args.shift()
+    shell = false
+  }
+  const opts = {shell, stdio: [0, 'pipe', 2]}
+  const result = spawnSync(cmd, args, opts)
   if (result.error) throw result.error
   return result.stdout.toString().trim()
 }

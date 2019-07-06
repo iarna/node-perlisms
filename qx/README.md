@@ -14,6 +14,10 @@ qx`ls -l`.then(output => console.log(output))
 // also available in synchronous version
 const output = qx.sync`ls -l`
 
+// or as an ordinary function (handy because it avoids needing quoting)
+const output = await qx('ls', '-l')
+qx('ls', '-l').then(output => console.log(output))
+const output = qx.sync('ls', '-l')
 ```
 
 ## Origins
