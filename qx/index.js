@@ -1,7 +1,6 @@
 'use strict'
 module.exports = qx
 
-const Bluebird = require('bluebird')
 const spawn = require('cross-spawn')
 const spawnSync = require('cross-spawn').sync
 
@@ -36,7 +35,7 @@ function qx () {
       setImmediate(() => imDone.resolve())
     }
   })
-  return Bluebird.join(outDone.promise, imDone.promise, () => {
+  return Promise.all([outDone.promise, imDone.promise]).then(() => {
     return Buffer.concat(output).toString().trim()
   })
 }
