@@ -91,6 +91,17 @@ Joins the array of values with the string in `joinWith`.  This is similar to
 rules.  Flags are not maintained (and a warning will be issued if any are
 set.  Set your flags after joining, eg `qr.join('|', regexpArray).with('gi')`.
 
+### qr._ → LastMatch
+
+Returns the result of the last match (be that via `.test`, `.exec` or the
+string regexp matchers). This is intended to make this pattern work more cleanly:
+
+```js
+if (qr`(abc)`.test('test abc this')) {
+    console.log(qr._[1]) // logs "abc"
+}
+```
+
 ### QRegExp
 
 Regular expressions created by `qr` are of the `QRegExp` class, which

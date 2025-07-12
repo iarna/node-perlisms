@@ -15,6 +15,14 @@ class QRegExp extends RegExp {
     const src = all.map(v => strify(v)).join('')
     return new QRegExp(src)
   }
+  test (arg1) {
+    qr._ = super.exec(arg1)
+    return Boolean(qr._)
+  }
+  exec (arg1) {
+    qr._ = super.exec(arg1)
+    return qr._
+  }
 }
 
 function qr () {
