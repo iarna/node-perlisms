@@ -29,7 +29,6 @@ function qr () {
   const args = Object.assign([], arguments[0].raw)
   const values = [].slice.call(arguments, 1)
   let result = ''
-  let lastWordWasValue = false
   while (args.length) {
     const arg = args.shift()
     result += arg
@@ -37,7 +36,7 @@ function qr () {
     if (values.length) {
       const val = values.shift()
       result += strify(val)
-    } 
+    }
   }
   return new QRegExp(result)
 }
